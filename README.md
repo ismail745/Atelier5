@@ -147,11 +147,6 @@ Atelier5/
 
 ## 👥 Auteurs
 
-- [Votre nom]
-- [Autres contributeurs]
+- Ismail KCHIBAL
 
 ---
-
-<div align="center">
-  <p>Développé avec ❤️</p>
-</div>
