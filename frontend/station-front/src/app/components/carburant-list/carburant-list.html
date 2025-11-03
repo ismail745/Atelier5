@@ -1,0 +1,28 @@
+<div class="container">
+	<h2>Liste des carburants</h2>
+	<a [routerLink]="['/carburants/new']" class="btn btn-primary mb-3">Nouveau Carburant</a>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Adresse</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let c of carburants">
+				<td>{{ c.nom }}</td>
+				<td>{{ c.description }}</td>
+				<td>{{ c.adresse }}</td>
+				<td>
+					<a [routerLink]="['/carburants/edit', c.id]" class="btn btn-sm btn-warning me-2">Modifier</a>
+					<button class="btn btn-sm btn-danger" (click)="deleteCarburant(c.id)" [disabled]="!c.id">Supprimer</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>

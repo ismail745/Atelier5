@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 *ngIf="!id">Nouvel enregistrement de prix</h2>
+  <h2 *ngIf="id">Modifier l'enregistrement</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input type="datetime-local" class="form-control" formControlName="date" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Carburant</label>
+      <select class="form-select" formControlName="carburantId">
+        <option [ngValue]="null">-- sélectionnez --</option>
+        <option *ngFor="let c of carburants" [value]="c.id">{{ c.nom }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Prix</label>
+      <input type="number" step="0.01" class="form-control" formControlName="prix" />
+    </div>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid || saving">{{ saving ? 'Enregistrement...' : 'Enregistrer' }}</button>
+      <button class="btn btn-secondary" type="button" (click)="cancel()">Annuler</button>
+    </div>
+  </form>
+</div>

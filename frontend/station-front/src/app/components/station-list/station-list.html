@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Liste des stations</h2>
+    <a [routerLink]="['/stations/new']" class="btn btn-primary mb-3">Nouvelle Station</a>
+    
+
+    <table  class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Ville</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let station of stations">
+                <td>{{station.nom}}</td>
+                <td>{{station.ville}}</td>
+                <td>
+                    <a [routerLink]="['/stations/edit', station.id]" class="btn btn-sm btn-warning me-2">Modifier</a>
+                    <button (click)="deleteStation(station.id)" [disabled]="!station.id" class="btn btn-sm btn-danger">Supprimer</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!loading && stations.length === 0" class="alert alert-info">Aucune station trouvée.</div>
+</div>
